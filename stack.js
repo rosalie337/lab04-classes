@@ -8,12 +8,11 @@ class Stack {
     // put item on top of stack
     push(item) {
         this.#stack.push(item)
-  
     }
-    
-    // take item off the top of stack and return that item
-    pop() {
-        return this.#stack.pop()
+
+// take item off the top of stack and return that item
+pop() {
+    return this.#stack.pop()
   
     }
   
@@ -23,5 +22,6 @@ class Stack {
   
     }
   }
+}
   
   module.exports = Stack;

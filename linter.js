@@ -1,34 +1,44 @@
+const Stack = require('./stack.js');
+
 const match = (string) => {
     return string.split('')
-      .filter(string => string === '{' || string === '}' || string === '(' || string === ')' || string === '[' || string === ']');
+      .filter(arr => arr === '{' || arr === '}' || arr === '(' || arr === ')' || arr === '[' || arr === ']');
   };
   
-  const linter = (string) => {
-    str = match(string);
-    console.log(str);
-    const lint = [];
-    const matched = {
-      '(': ')',
-      '[': ']',
-      '{': '}'
+  const linter = (array) => {
+      arr = match(array);
+      console.log(arr);
+      const stack = new Stack();
+    
+      const matched = {
+        '(': ')',
+        '[': ']',
+        '{': '}',
+        ')': '(',
+        ']': '[',
+        '}': '{'
     };
-    for(let i = 0; i < str.length; i++) {
-      if(str[i] === '(' || str[i] === '{' || str[i] === '[') {
-        lint.push(str[i]);
+    for(let i = 0; i < arr.length; i++) {
+        const peek = stack.peek();
+      if(arr[i] === '(' || arr[i] === '{' || arr[i] === '[') {
+        stack.push(arr[i]);
       } else {
-        const prevMatch = lint.pop();
-        if(str[i] != matched[prevMatch]) {
+        const prevMatch = stack.pop();
+        if(arr[i] != matched[prevMatch]) {
           return false;
         }
       }
     }
-    if(lint.length != 0) {
+    if(stack.length != 0) {
       return false;
     }
     return true;
   
   };
-  let str = '{}}hey';
+  // let arr = '{}}hey';
+  let arr = '{{{[hey]}}}}';
+  const checkTheLinter = linter(arr);
+  console.log(checkTheLinter);
   
 module.exports = 
   {

@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
-const stack = require('./stack.js');
+const linter = require('./Linter');
 
-app.get(express.json(req, res), => {
-    // get response, take res and filter with linting function 
-    // use stack first in first out, once filter can use stack with methods in server.js (push, pop, peek)
-    // post route, return 
-}
+app.use(express.json());
+
+app.post('api/Linter', (req, res) => {
+  const word = new linter(req.match, req.lint);
+  res.send(word.linter());
 });
 
 app.listen(7890, () => {

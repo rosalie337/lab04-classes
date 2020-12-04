@@ -2,7 +2,7 @@
   "name": "lab04-classes",
   "version": "1.0.0",
   "description": "# Linter Lab",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "jest",
     "test:watch": "npm run test -- --watch",

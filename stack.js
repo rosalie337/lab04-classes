@@ -18,7 +18,7 @@ pop() {
   
     // look at item on top of stack
     peek() {
-        this.#stack.peek[this.#stack.length -1]
+        this.#stack[this.#stack.length -1]
   
     }
   }

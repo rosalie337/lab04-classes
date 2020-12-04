@@ -22,6 +22,5 @@ pop() {
   
     }
   }
-}
-  
-  module.exports = Stack;
+
+module.exports = Stack;
